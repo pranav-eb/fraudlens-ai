@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base reset & typography ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --navy-950: #020617;
+  --navy-900: #0F172A;
+  --navy-800: #1E293B;
+  --navy-700: #334155;
+  --navy-600: #475569;
+  --accent-primary: #38BDF8; /* Sky 400 */
+  --accent-secondary: #818CF8; /* Indigo 400 */
+  --accent-success: #34D399; /* Emerald 400 */
+  --accent-error: #FB7185; /* Rose 400 */
+  --accent-warning: #FBBF24; /* Amber 400 */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--navy-950);
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(129, 204, 248, 0.03) 0%, transparent 50%);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--navy-700); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--navy-600); }
+
+/* ─── Minimal card ─────────────────────────────────────────────── */
+.glass {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-light {
+  background: rgba(51, 65, 85, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+/* ─── gradient-text stubbed to solid ─────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #FFF 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Glow effects stubbed ───────────────────────────────────── */
+.glow-gold   { box-shadow: 0 0 20px rgba(251, 191, 36, 0.1); }
+.glow-red    { box-shadow: 0 0 20px rgba(251, 113, 133, 0.1); }
+.glow-cyan   { box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); }
+.glow-green  { box-shadow: 0 0 20px rgba(52, 211, 153, 0.1); }
+
+/* ─── Shimmer loader ─────────────────────────────────────────── */
+.shimmer-base {
+  background: linear-gradient(90deg,
+    rgba(14,40,71,0.8) 25%,
+    rgba(22,51,96,0.9) 37%,
+    rgba(14,40,71,0.8) 63%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ─── Dropzone ───────────────────────────────────────────────── */
+.dropzone-active {
+  border-color: var(--cyan-400) !important;
+  background: var(--navy-800) !important;
+}
+
+/* ─── Progress bar ───────────────────────────────────────────── */
+.progress-bar-fill {
+  background: var(--gold-500);
+}
+
+/* ─── Table ──────────────────────────────────────────────────── */
+.fraud-table th {
+  background: var(--navy-700);
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--navy-600);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.fraud-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--navy-600);
+  font-size: 0.82rem;
+  color: #CBD5E1;
+  white-space: nowrap;
+}
+.fraud-table tr:hover td { background: var(--navy-800); }
+
+/* ─── Score badge ────────────────────────────────────────────── */
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.score-high   { background: var(--rose-400); color: #FFF; border: none; }
+.score-medium { background: var(--gold-400); color: #000; border: none; }
+.score-low    { background: var(--emerald-400); color: #FFF; border: none; }
+
+/* ─── Recharts override ──────────────────────────────────────── */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical   line { stroke: rgba(255,255,255,0.05); }
+.recharts-text { fill: #94A3B8 !important; font-size: 11px !important; }
+.recharts-tooltip-wrapper { outline: none; }
+.recharts-default-tooltip {
+  background: rgba(6,18,36,0.95) !important;
+  border: 1px solid rgba(245,200,66,0.25) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+
+/* ─── Utility animations ─────────────────────────────────────── */
+.animate-slide-up { animation: slideUp 0.5s ease forwards; }
+.animate-fade-in  { animation: fadeIn 0.4s ease forwards; }
